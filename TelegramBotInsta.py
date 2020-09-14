@@ -1,5 +1,6 @@
 import urllib.request
 import json
+import os
 import logging
 import telegram
 import requests
@@ -13,7 +14,7 @@ logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s
 
 logger = logging.getLogger(__name__)
 
-token = "YOUR BOT TOKEN"
+token = os.environ.get("token","")
 
 
 
