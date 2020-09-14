@@ -34,12 +34,15 @@ def instaDp(update, context):
         fullLink="https://www.instagram.com/"+textInstaProfileId+"/?__a=1"
         update.message.reply_text('Fetching Details.....')
         context.bot.send_chat_action(chat_id=update.effective_message.chat_id ,action=telegram.ChatAction.UPLOAD_PHOTO)
-        with urllib.request.urlopen(fullLink) as url:
-            data = json.loads(url.read().decode())
-            data2 = data['graphql']
-            data3 = data2['user']
-            profileUrl = data3['profile_pic_url_hd']
+
+        url = "https://www.instagram.com/"+ProfileId+"/?__a=1"
+        r = requests.get(url)
+        if 'json' in r.headers.get('Content-Type'):
+            data = r.json()
+            profileUrl=data['graphql']['user']['profile_pic_url_hd']
             context.bot.send_photo(chat_id=update.effective_chat.id, photo=profileUrl)
+        else:
+            update.message.reply_text("response is not in json format")
     except Exception as error:
         update.message.reply_text(str(error))
 
