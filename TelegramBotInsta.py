@@ -29,9 +29,8 @@ def help(update,context):
 
 def instaDp(update, context):
     try:
-        textInstaProfileId = ' '.join(context.args)
+        ProfileId = ' '.join(context.args)
         context.bot.send_chat_action(chat_id=update.effective_message.chat_id ,action=telegram.ChatAction.TYPING)
-        fullLink="https://www.instagram.com/"+textInstaProfileId+"/?__a=1"
         update.message.reply_text('Fetching Details.....')
         context.bot.send_chat_action(chat_id=update.effective_message.chat_id ,action=telegram.ChatAction.UPLOAD_PHOTO)
 
