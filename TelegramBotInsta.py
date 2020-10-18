@@ -35,6 +35,7 @@ def instaDp(update, context):
         context.bot.send_chat_action(chat_id=update.effective_message.chat_id ,action=telegram.ChatAction.UPLOAD_PHOTO)
 
         url = "https://www.instagram.com/"+ProfileId+"/?__a=1"
+        print(r)
         r = requests.get(url)
         if 'json' in r.headers.get('Content-Type'):
             data = r.json()
