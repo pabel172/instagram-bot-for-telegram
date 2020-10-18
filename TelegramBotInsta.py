@@ -34,9 +34,9 @@ def instaDp(update, context):
         update.message.reply_text('Fetching Details.....')
         context.bot.send_chat_action(chat_id=update.effective_message.chat_id ,action=telegram.ChatAction.UPLOAD_PHOTO)
 
-        url = "https://www.instagram.com/"+ProfileId+"/?__a=1"
-        print(r)
+        url = "https://www.instagram.com/"+ProfileId+"/?__a=1" 
         r = requests.get(url)
+        print (r)
         if 'json' in r.headers.get('Content-Type'):
             data = r.json()
             profileUrl=data['graphql']['user']['profile_pic_url_hd']
