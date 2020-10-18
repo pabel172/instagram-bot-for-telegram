@@ -37,12 +37,11 @@ def instaDp(update, context):
         url = "https://www.instagram.com/"+ProfileId+"/?__a=1" 
         r = requests.get(url)
         print (r)
-        if 'json' in r.headers.get('Content-Type'):
-            data = r.json()
-            profileUrl=data['graphql']['user']['profile_pic_url_hd']
-            context.bot.send_photo(chat_id=update.effective_chat.id, photo=profileUrl)
-        else:
-            update.message.reply_text("response is not in json format")
+        
+        data = r.json()
+        print(data)
+        profileUrl=data['graphql']['user']['profile_pic_url_hd']
+        context.bot.send_photo(chat_id=update.effective_chat.id, photo=profileUrl)
     except Exception as error:
         update.message.reply_text(str(error))
 
