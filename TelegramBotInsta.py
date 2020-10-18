@@ -38,7 +38,7 @@ def instaDp(update, context):
         r = requests.get(url)
         print (r)
         
-        data = r.json()
+        data = json.dumps(r)
         print(data)
         profileUrl=data['graphql']['user']['profile_pic_url_hd']
         context.bot.send_photo(chat_id=update.effective_chat.id, photo=profileUrl)
