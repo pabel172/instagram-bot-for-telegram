@@ -14,7 +14,7 @@ logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s
 
 logger = logging.getLogger(__name__)
 
-token = os.environ.get("token","")
+token = os.environ.get("token","6327043779:AAHvyoHRknLOO5js-OWNPw0HUhH1Xya2fMw")
 
 
 
